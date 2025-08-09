@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Отсчёт до Нового года</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1724;
+      --accent:#ffd166;
+      --muted:#9aa6b2;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;}
+    body{
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(135deg,var(--bg) 0%, #071028 100%);
+      color:#e6eef6;
+      padding:24px;
+    }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;
+      padding:28px;
+      box-shadow:0 8px 30px rgba(2,6,23,0.6);
+      text-align:center;
+      min-width:260px;
+      max-width:720px;
+      width:100%;
+    }
+    h1{margin:0 0 8px;font-size:20px;letter-spacing:0.2px}
+    p.lead{margin:0 0 20px;color:var(--muted)}
+    .timer{
+      display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+    }
+    .seg{
+      background:rgba(255,255,255,0.03);
+      padding:12px 14px;border-radius:8px;min-width:72px;
+      box-shadow:inset 0 -2px 0 rgba(0,0,0,0.2);
+    }
+    .seg .num{font-size:28px;font-weight:700;color:var(--accent)}
+    .seg .label{font-size:12px;color:var(--muted);margin-top:6px}
+    .finished{font-size:22px;color:var(--accent);margin-top:14px}
+    footer{margin-top:18px;font-size:12px;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 id="title">Отсчёт до Нового года</h1>
+    <p class="lead" id="subtitle">Обновляется каждую секунду</p>
+
+    <div class="timer" id="timer">
+      <div class="seg">
+        <div class="num" id="days">0</div>
+        <div class="label">дней</div>
+      </div>
+      <div class="seg">
+        <div class="num" id="hours">0</div>
+        <div class="label">часов</div>
+      </div>
+      <div class="seg">
+        <div class="num" id="minutes">0</div>
+        <div class="label">минут</div>
+      </div>
+      <div class="seg">
+        <div class="num" id="seconds">0</div>
+        <div class="label">секунд</div>
+      </div>
+    </div>
+
+    <div id="finishedMessage" class="finished" style="display:none">
+      🎉 С Новым годом! 🎉
+    </div>
+
+    <footer id="targetYear" aria-live="polite"></footer>
+  </div>
+
+  <script src="countdown.js"></script>
+</body>
+</html>
